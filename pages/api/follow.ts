@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!user) throw new Error('Invalid ID.');
 
-    let updatedFollowingIds = [...(user.followingIds || [])];
+    let updatedFollowingIds = [...(currentUser.followingIds || [])];
 
     if (req.method === 'POST') updatedFollowingIds.push(userId);
     if (req.method === 'DELETE') updatedFollowingIds = updatedFollowingIds.filter((followingId) => followingId !== userId);
