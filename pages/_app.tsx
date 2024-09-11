@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
+import Head from 'next/head';
 
 import EditModal from '@/components/modals/EditModal';
 import LoginModal from '@/components/modals/LoginModal';
@@ -17,6 +17,12 @@ export default function App({ Component, pageProps }: AppProps) {
       const favicon = document.querySelector("link[rel='icon']");
       if (favicon) {
         favicon.setAttribute('href', isDarkMode ? '/Chirper-dark.svg' : '/Chirper-light.svg');
+      } else {
+        // If no favicon exists, create one
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.href = isDarkMode ? '/Chirper-dark.svg' : '/Chirper-light.svg';
+        document.head.appendChild(link);
       }
     };
 
@@ -40,8 +46,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <SessionProvider session={pageProps.session}>
       <Head>
         <title>Chirper</title>
-        {/* Default favicon */}
-        <link rel="icon" href="/Chirper-light.svg" />
       </Head>
       <Toaster />
       <EditModal />
