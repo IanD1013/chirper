@@ -21,6 +21,7 @@ const Sidebar = () => {
       href: '/notifications',
       icon: BsBellFill,
       auth: true,
+      alert: currentUser?.hasNotification,
     },
     {
       label: 'Profile',
@@ -37,7 +38,7 @@ const Sidebar = () => {
           <SidebarLogo />
 
           {items.map((item) => (
-            <SidebarItem key={item.href} href={item.href} label={item.label} icon={item.icon} auth={item.auth} />
+            <SidebarItem key={item.href} href={item.href} label={item.label} icon={item.icon} auth={item.auth} alert={item.alert} />
           ))}
 
           {currentUser && <SidebarItem onClick={() => signOut()} label="Logout" icon={BiLogOut} />}
