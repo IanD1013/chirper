@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { FaFeather } from 'react-icons/fa';
 
-const SideBarTweetButton = () => {
+const SideBarChirpButton = () => {
   const router = useRouter();
   const loginModal = useLoginModal();
 
@@ -18,10 +18,10 @@ const SideBarTweetButton = () => {
       </div>
 
       <div className="mt-6 hidden lg:block px-4 py-2 rounded-full bg-sky-500 hover: bg-opacity-90 cursor-pointer transition">
-        <p className="hidden lg:block text-center font-semibold text-white text-[20px]">Tweet</p>
+        <p className="hidden lg:block text-center font-semibold text-white text-[20px]">Chirp</p>
       </div>
     </div>
   );
 };
 
-export default SideBarTweetButton;
+export default SideBarChirpButton;

@@ -66,13 +66,13 @@ const Form = ({ placeholder, isComment, postId }: FormProps) => {
             <hr className="opacity-0 peer-focus:opacity-100 h-[1px] w-full border-neutral-800 transition" />
 
             <div className="mt-4 flex flex-row justify-end">
-              <Button disabled={isLoading || !body} label="Tweet" onClick={onSubmit} />
+              <Button disabled={isLoading || !body} label="Chirp" onClick={onSubmit} />
             </div>
           </div>
         </div>
       ) : (
         <div className="py-8">
-          <h1 className="text-white text-2xl text-center mb-4 font-bold">Welcome to Twitter</h1>
+          <h1 className="text-white text-2xl text-center mb-4 font-bold">Welcome to Chirper</h1>
           <div className="flex flex-row items-center justify-center gap-4">
             <Button label="Login" onClick={loginModal.onOpen} />
             <Button label="Register" onClick={registerModal.onOpen} secondary />
